@@ -1,1 +1,0 @@
-['.heic', '.jpg', '.png', '.webp', '.jpeg', '.xlsx', '.txt', '.pdf', '.csv', '.xls', '.zip']

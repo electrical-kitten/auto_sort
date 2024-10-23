@@ -1,0 +1,5 @@
+{
+    "image_formats": [".heic", ".jpg",".png", ".webp", ".jpeg"],
+    "document_formats": [".xlsx", ".txt", ".pdf", ".csv", ".xls", ".zip"],
+    "other_formats": [".exe"]
+}
