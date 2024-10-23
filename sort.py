@@ -1,5 +1,6 @@
 from pathlib import Path
 import os, shutil
+import json
 
 class Sort_Files:
 
@@ -7,7 +8,7 @@ class Sort_Files:
 
         self.specific_path = specific_path
 
-    def get_path(self, dir_name=''):
+    def get_path(self):
         gen_path = Path.home() / self.specific_path 
         if gen_path.exists():
             return gen_path
@@ -30,5 +31,21 @@ class Sort_Files:
                 self.move_file(file, dest_path)
                 print(f"\n{file} moved succesully")
 
-# for file in get_path('Downloads').glob('*.xlsx'):
-#     print(file)
+
+downloads_dir = Sort_Files('Downloads')
+doc_dir = Sort_Files('Documents')
+pictures_dir = Sort_Files('Pictures')
+music_dir = Sort_Files('Music')
+video_dir = Sort_Files('Videos')
+
+downloads_path = downloads_dir.get_path()
+pictures_path = pictures_dir.get_path()
+doc_path = doc_dir.get_path()
+exe_path = downloads_dir.get_path()
+
+with open('file_formats.json') as file:
+    file_formats = json.load(file)
+
+print(pictures_path)
+downloads_dir.sort_files(pictures_path, file_formats['image_formats'])
+downloads_dir.sort_files(doc_path, file_formats['document_formats'])
